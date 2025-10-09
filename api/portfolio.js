@@ -33,8 +33,8 @@ export default function handler(req, res) {
             "Six Sigma Black Belt"
         ],
         contact: {
-            email: "kaunghtetpaing.dev@gmail.com",
-            phone: "+1 (555) 123-4567",
+            email: "rita@oxp.mobi",
+            phone: "+12342469978",
             linkedin: "linkedin.com/in/kaunghtetpai",
             github: "github.com/kaunghtetpai"
         },

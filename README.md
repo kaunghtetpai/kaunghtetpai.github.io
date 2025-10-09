@@ -47,9 +47,9 @@ Visit: [https://kaunghtetpai.github.io](https://kaunghtetpai.github.io)
 
 ## Professional Contact
 
-- Email: kaunghtetpaing.dev@gmail.com
-- Phone: +95 9 123 456 789
-- Location: Silicon Valley, CA & Yangon, Myanmar
+- Email: rita@oxp.mobi
+- Phone: +12342469978
+- Location: Singapore
 - LinkedIn: [linkedin.com/in/kaunghtetpai](https://linkedin.com/in/kaunghtetpai)
 - Twitter: [twitter.com/kaunghtetpai](https://twitter.com/kaunghtetpai)
 - GitHub: [github.com/kaunghtetpai](https://github.com/kaunghtetpai)
