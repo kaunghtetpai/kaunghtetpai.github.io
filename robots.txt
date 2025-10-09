@@ -4,7 +4,7 @@ Disallow: /api/
 Disallow: /.git/
 Disallow: /node_modules/
 
-Sitemap: https://kaunghtetpaing.dev/sitemap.xml
+Sitemap: https://oxp.mobi/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
