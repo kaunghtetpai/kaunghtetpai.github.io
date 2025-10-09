@@ -1,11 +1,14 @@
 export default function handler(req, res) {
     const stats = {
-        projects: 35,
-        clients: 12,
-        efficiency: 40,
-        revenue: 25,
-        experience: 6,
-        lastUpdated: new Date().toISOString()
+        projects: 42,
+        clients: 18,
+        efficiency: 45,
+        revenue: 32,
+        experience: 7,
+        certifications: 8,
+        partnerships: 15,
+        lastUpdated: new Date().toISOString(),
+        year: 2025
     };
 
     res.status(200).json(stats);
