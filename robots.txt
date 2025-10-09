@@ -4,7 +4,7 @@ Disallow: /api/
 Disallow: /.git/
 Disallow: /node_modules/
 
-Sitemap: https://kaunghtetpai.github.io/sitemap.xml
+Sitemap: https://kaunghtetpaing.dev/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
