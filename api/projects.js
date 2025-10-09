@@ -44,6 +44,24 @@ export default function handler(req, res) {
             impact: "Enterprise performance, modern architecture",
             year: 2025,
             status: "active"
+        },
+        {
+            id: 6,
+            title: "Singapore FinTech Integration",
+            description: "Digital payment system integration for Southeast Asian markets",
+            technologies: ["Node.js", "React", "PostgreSQL", "AWS"],
+            impact: "$5M transaction volume, 99.9% uptime",
+            year: 2024,
+            status: "completed"
+        },
+        {
+            id: 7,
+            title: "Multi-Language E-commerce Platform",
+            description: "Cross-border e-commerce solution supporting 12 countries",
+            technologies: ["Vue.js", "Laravel", "Redis", "Docker"],
+            impact: "12 countries, 4 languages, 200K+ users",
+            year: 2024,
+            status: "completed"
         }
     ];
 

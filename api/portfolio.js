@@ -26,18 +26,26 @@ export default function handler(req, res) {
             client_satisfaction: "98% retention rate"
         },
         certifications: [
-            "AWS Solutions Architect",
-            "Google Cloud Professional",
-            "Salesforce Certified",
-            "Agile Scrum Master",
-            "Six Sigma Black Belt"
+            "AWS Solutions Architect Professional",
+            "Google Cloud Professional Data Engineer",
+            "Salesforce Certified Administrator",
+            "Agile Scrum Master (PSM I)",
+            "Six Sigma Black Belt",
+            "PMP Project Management Professional",
+            "Microsoft Azure Solutions Architect",
+            "Digital Marketing Institute Certified"
         ],
         contact: {
             email: "rita@oxp.mobi",
             phone: "+12342469978",
             linkedin: "linkedin.com/in/kaunghtetpai",
-            github: "github.com/kaunghtetpai"
+            github: "github.com/kaunghtetpai",
+            twitter: "twitter.com/kaunghtetpai",
+            website: "https://kaunghtetpai.github.io"
         },
+        languages: ["English", "Mandarin", "Malay", "Myanmar"],
+        timezone: "Asia/Singapore",
+        availability: "Available for projects",
         lastUpdated: new Date().toISOString(),
         year: 2025
     };
