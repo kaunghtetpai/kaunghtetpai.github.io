@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaung Htet Paing | Digital Transformation Specialist</title>
-    <meta name="description" content="Product Marketing and Digital Transformation Specialist with expertise in key account management and pricing strategy">
+    <meta name="description" content="Digital Transformation Specialist and Product Marketing Expert specializing in key account management, pricing strategy, and digital innovation solutions">
+    <meta name="keywords" content="digital transformation, product marketing, pricing strategy, key account management, business strategy, Myanmar">
+    <meta name="author" content="Kaung Htet Paing">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kaunghtetpai.github.io">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link rel="alternate" type="application/atom+xml" title="Kaung Htet Paing - Portfolio Updates" href="/atom.xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <style>
         :root {
-            --dark-bg: #0a192f;
-            --dark-secondary: #112240;
-            --dark-accent: #233554;
-            --cyan: #64ffda;
-            --light-cyan: #a8ffec;
-            --light: #ccd6f6;
-            --light-secondary: #a8b2d1;
-            --gray: #8892b0;
-            --success: #10b981;
-            --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+            --black: #000000;
+            --pearl: #f8f8ff;
+            --graphite: #2f2f2f;
+            --transparent-light: rgba(248, 248, 255, 0.1);
+            --transparent-medium: rgba(248, 248, 255, 0.2);
+            --transparent-heavy: rgba(248, 248, 255, 0.3);
+            --glass: rgba(248, 248, 255, 0.05);
+            --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            --glow: 0 0 30px rgba(248, 248, 255, 0.2);
         }
         
         * {
@@ -30,532 +37,52 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
-            color: var(--light);
-            background-color: var(--dark-bg);
-            line-height: 1.6;
-            overflow-x: hidden;
-            font-weight: 400;
+        html {
+            scroll-behavior: smooth;
         }
         
-        /* Loading animation */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--pearl);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+        
+        /* Glass morphism utility */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--transparent-light);
+        }
+        
+        /* Loading Screen */
         #loading {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--dark-bg);
+            background: var(--black);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999;
+            z-index: 10000;
+            transition: opacity 0.8s ease;
         }
         
         .loader {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--dark-accent);
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--transparent-light);
             border-radius: 50%;
-            border-top-color: var(--cyan);
-            animation: spin 1s ease-in-out infinite;
+            border-top-color: var(--pearl);
+            animation: spin 1.2s linear infinite;
         }
         
         @keyframes spin {
             to { transform: rotate(360deg); }
-        }
-        
-        /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(10, 25, 47, 0.9);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--cyan);
-        }
-        
-        .verification-badge {
-            color: var(--cyan);
-            font-size: 1rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--light);
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            transition: var(--transition);
-            font-size: 0.95rem;
-        }
-        
-        nav a:hover {
-            color: var(--cyan);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--cyan);
-            transition: var(--transition);
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--light);
-        }
-        
-        /* Section common styles */
-        section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 4rem;
-            text-align: center;
-            position: relative;
-            color: var(--light);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            letter-spacing: -0.01em;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 3px;
-            background: var(--cyan);
-            border-radius: 3px;
-        }
-        
-        /* Hero section */
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 8rem;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 850px;
-            margin: 0 auto;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-        }
-        
-        .hero-title {
-            font-size: 4.2rem;
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            color: var(--light);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            letter-spacing: -0.02em;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.8rem;
-            color: var(--light-secondary);
-            margin-bottom: 3rem;
-            font-weight: 300;
-            line-height: 1.5;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cyan-accent {
-            color: var(--cyan);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--cyan);
-            color: var(--dark-bg);
-            padding: 1.3rem 2.8rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
-        }
-        
-        .cta-button:hover {
-            background: var(--light-cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4);
-        }
-        
-
-        
-        .hero-image-placeholder {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            margin: 3rem auto;
-            border: 3px solid var(--cyan);
-            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark-accent) 100%);
-        }
-        
-        .initials {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--cyan);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        .contact-info {
-            margin-top: 2.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            font-size: 1.1rem;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            color: var(--light-secondary);
-            transition: var(--transition);
-        }
-        
-        .contact-item:hover {
-            color: var(--cyan);
-        }
-        
-        .contact-item i {
-            color: var(--cyan);
-        }
-        
-        /* About section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text {
-            font-size: 1.2rem;
-            color: var(--light-secondary);
-            line-height: 1.9;
-            font-weight: 300;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.8rem;
-        }
-        
-        .education {
-            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(35, 53, 84, 0.8) 100%);
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .education h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.2rem;
-            color: var(--cyan);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        .education p {
-            color: var(--light-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Experience section */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: var(--cyan);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            opacity: 0.6;
-        }
-        
-        .timeline-item {
-            padding: 2.5rem 0;
-            position: relative;
-            width: 50%;
-            opacity: 0;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            padding-right: 4rem;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            padding-left: 4rem;
-        }
-        
-        .timeline-content {
-            padding: 2.5rem;
-            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(35, 53, 84, 0.8) 100%);
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            transition: var(--transition);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            position: relative;
-            backdrop-filter: blur(10px);
-        }
-        
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--dark-secondary);
-            border: 2px solid var(--cyan);
-            border-radius: 50%;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            right: -40px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::before {
-            left: -40px;
-        }
-        
-        .timeline-content:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            border-color: rgba(100, 255, 218, 0.3);
-        }
-        
-        .timeline-date {
-            font-weight: 700;
-            color: var(--cyan);
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-        
-        .timeline-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--light);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        .timeline-desc {
-            color: var(--light-secondary);
-            margin-bottom: 1.2rem;
-            font-weight: 500;
-        }
-        
-        .timeline-achievements {
-            margin-top: 1.5rem;
-        }
-        
-        .timeline-achievements li {
-            margin-bottom: 0.8rem;
-            color: var(--light-secondary);
-            position: relative;
-            padding-left: 1.8rem;
-        }
-        
-        .timeline-achievements li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--cyan);
-        }
-        
-        /* Contact section */
-        #contact {
-            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(17, 34, 64, 0.9) 100%);
-            border-radius: 20px;
-            margin: 6rem 2rem;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        #contact .section-title {
-            color: var(--light);
-        }
-        
-        #contact .section-title::after {
-            background: var(--cyan);
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-        
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.8rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-        }
-        
-        .form-group label {
-            font-weight: 500;
-            color: var(--light);
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            padding: 1.4rem;
-            border: none;
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-            background: rgba(35, 53, 84, 0.6);
-            color: var(--light);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(5px);
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--cyan);
-            box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
-        }
-        
-        .submit-btn {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            border: none;
-            padding: 1.4rem 3rem;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1.5rem;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
-        }
-        
-        .submit-btn:hover {
-            background: var(--light-cyan);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(100, 255, 218, 0.4);
-        }
-        
-
-        
-        .social-links {
-            display: flex;
-            gap: 1.8rem;
-            justify-content: center;
-            margin-top: 3rem;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: var(--dark-accent);
-            color: var(--cyan);
-            font-size: 1.5rem;
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-        
-        .social-link:hover {
-            background: transparent;
-            border-color: var(--cyan);
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
-        }
-        
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            color: var(--gray);
-            font-size: 0.95rem;
-            background: var(--dark-secondary);
-            margin-top: 5rem;
         }
         
         /* 3D Background */
@@ -565,360 +92,842 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-            opacity: 0.4;
+            z-index: -2;
         }
         
-        /* Responsive styles */
-        @media (max-width: 1000px) {
-            .about-content {
+        /* Animated Flowers Background */
+        .flowers-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .flower {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--pearl);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 3rem;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--transparent-light);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--pearl);
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--pearl);
+            transition: var(--transition);
+        }
+        
+        .logo:hover::after {
+            width: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+        
+        nav a {
+            color: var(--pearl);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            position: relative;
+            transition: var(--transition);
+            letter-spacing: 0.5px;
+        }
+        
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--pearl);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        nav a:hover::before {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--pearl);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 3rem;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            z-index: 2;
+        }
+        
+        .hero-subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--pearl);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 100;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--pearl) 0%, rgba(248, 248, 255, 0.6) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--pearl);
+            opacity: 0.7;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 1px solid var(--pearl);
+            color: var(--pearl);
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--pearl);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            left: 0;
+        }
+        
+        .cta-button:hover {
+            color: var(--black);
+            box-shadow: var(--glow);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 100;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 1px;
+            background: var(--pearl);
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 2;
+            opacity: 0.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--transparent-light);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 100;
+            color: var(--pearl);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .skill-category {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--transparent-light);
+            padding: 3rem;
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--transparent-medium);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--pearl);
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--transparent-light);
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .skill-list li:hover {
+            opacity: 1;
+            padding-left: 1rem;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--transparent-light);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+        
+        .timeline-content {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--transparent-light);
+            padding: 2.5rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 12px;
+            height: 12px;
+            background: var(--pearl);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -30px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -30px;
+        }
+        
+        .timeline-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--pearl);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-company {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline-description {
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .project-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--transparent-light);
+            padding: 3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--pearl), transparent);
+            transform: translateX(-100%);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-description {
+            opacity: 0.8;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            padding: 0.5rem 1rem;
+            background: var(--transparent-light);
+            border: 1px solid var(--transparent-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            opacity: 1;
+        }
+        
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--transparent-light);
+            color: var(--pearl);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--pearl);
+            box-shadow: var(--glow);
+        }
+        
+        .form-group label {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            color: var(--pearl);
+            opacity: 0.6;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+        
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            left: 1rem;
+            font-size: 0.8rem;
+            background: var(--black);
+            padding: 0 0.5rem;
+        }
+        
+        .submit-btn {
+            padding: 1.5rem 3rem;
+            background: transparent;
+            border: 1px solid var(--pearl);
+            color: var(--pearl);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--pearl);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .submit-btn:hover::before {
+            left: 0;
+        }
+        
+        .submit-btn:hover {
+            color: var(--black);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 3rem;
+            border-top: 1px solid var(--transparent-light);
+            opacity: 0.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 4rem;
             }
             
-            .contact-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-            
-            .timeline::after {
-                left: 31px;
+            .timeline::before {
+                left: 2rem;
             }
             
             .timeline-item {
                 width: 100%;
-                padding-left: 80px;
-                padding-right: 0;
+                left: 0 !important;
+                padding-left: 4rem !important;
+                padding-right: 0 !important;
             }
             
-            .timeline-item:nth-child(odd),
-            .timeline-item:nth-child(even) {
-                left: 0;
-                padding-right: 0;
-                padding-left: 80px;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-content::before,
-            .timeline-item:nth-child(even) .timeline-content::before {
-                left: -40px;
+            .timeline-item .timeline-content::before {
+                left: -30px !important;
             }
         }
         
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .skill-category,
-            .project-card {
-                padding: 2rem;
+            header {
+                padding: 1rem 2rem;
             }
             
             nav ul {
                 position: fixed;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--dark-secondary);
+                background: var(--black);
                 flex-direction: column;
                 align-items: center;
+                gap: 2rem;
                 padding: 2rem;
-                gap: 1.8rem;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
                 transform: translateY(-100%);
                 opacity: 0;
-                pointer-events: none;
+                visibility: hidden;
                 transition: var(--transition);
-                border-top: 1px solid var(--dark-accent);
             }
             
             nav ul.active {
                 transform: translateY(0);
                 opacity: 1;
-                pointer-events: all;
+                visibility: visible;
             }
             
             .menu-toggle {
                 display: block;
             }
             
-            .contact-info {
-                flex-direction: column;
-                gap: 1.2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2.3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
             section {
-                padding: 4rem 1.5rem;
+                padding: 6rem 2rem;
             }
             
-            #contact {
-                margin: 4rem 1rem;
+            .hero-title {
+                font-size: 3rem;
             }
             
-            .timeline-item {
-                padding-left: 60px;
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
             
-            .timeline-content {
-                padding: 1.5rem;
+            .stats-grid {
+                grid-template-columns: 1fr;
             }
         }
         
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(50px);
         }
         
-        .skill-category {
-            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(35, 53, 84, 0.8) 100%);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            transition: var(--transition);
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: rgba(100, 255, 218, 0.3);
-        }
-        
-        .skill-category h3 {
-            color: var(--cyan);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-        
-        .skill-tag {
-            background: rgba(100, 255, 218, 0.1);
-            color: var(--light);
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            transition: var(--transition);
-        }
-        
-        .skill-tag:hover {
-            background: rgba(100, 255, 218, 0.2);
-            border-color: var(--cyan);
-        }
-        
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-        
-        .project-card {
-            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(35, 53, 84, 0.8) 100%);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            transition: var(--transition);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(100, 255, 218, 0.3);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        }
-        
-        .project-card h3 {
-            color: var(--light);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        
-        .project-card p {
-            color: var(--light-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-        
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-        }
-        
-        .tag {
-            background: var(--cyan);
-            color: var(--dark-bg);
-            padding: 0.4rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        /* Animation classes */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
         }
         
-        .fade-in.appear {
-            opacity: 1;
-            transform: translateY(0);
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
         }
     </style>
 </head>
 <body>
-    <!-- Loading animation -->
+    <!-- Loading Screen -->
     <div id="loading">
         <div class="loader"></div>
     </div>
 
-    <!-- 3D Background Container -->
+    <!-- 3D Background -->
     <div id="bg3d"></div>
 
+    <!-- Animated Flowers -->
+    <div class="flowers-container" id="flowers"></div>
+
     <!-- Header -->
-    <header>
-        <div class="logo">
-            <span>Kaung Htet Paing</span>
-            <i class="fas fa-badge-check verification-badge"></i>
+    <header id="header">
+        <div class="nav-container">
+            <a href="#hero" class="logo">KHP.DEV</a>
+            <nav>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul id="navMenu" role="navigation" aria-label="Main navigation">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1 class="hero-title">Hi, I'm <span class="cyan-accent">Kaung Htet Paing</span></h1>
-            <p class="hero-subtitle">Digital Transformation Specialist & Product Marketing Expert</p>
-            <a href="#contact" class="cta-button">Get In Touch</a>
-            <div class="hero-image-placeholder">
-                <span class="initials">KHP</span>
-            </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <span>kaunghtetpaing.dev@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+95 9 123 456 789</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Yangon, Myanmar</span>
-                </div>
-            </div>
+            <div class="hero-subtitle fade-up">Digital Transformation Specialist</div>
+            <h1 class="hero-title fade-up">Kaung Htet Paing</h1>
+            <p class="hero-description fade-up">Transforming businesses through strategic digital innovation, product marketing excellence, and data-driven solutions that drive sustainable growth in the modern economy.</p>
+            <a href="#contact" class="cta-button fade-up">Start Conversation</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I'm a passionate Digital Transformation Specialist with extensive experience in product marketing and key account management. My expertise lies in developing comprehensive pricing strategies and driving digital initiatives that transform business operations.</p>
-                <p>With a strong background in technology and business strategy, I help organizations navigate the complexities of digital transformation while maintaining focus on customer value and market positioning.</p>
-                <p>I believe in the power of data-driven decision making and collaborative leadership to achieve sustainable growth and innovation in today's rapidly evolving digital landscape.</p>
+        <h2 class="section-title fade-up">About</h2>
+        <div class="about-grid">
+            <div class="about-text slide-left">
+                <p>As a Digital Transformation Specialist, I bridge the gap between traditional business practices and cutting-edge digital solutions. My expertise spans strategic planning, product marketing, and key account management.</p>
+                <p>With a deep understanding of market dynamics and consumer behavior, I help organizations navigate complex digital landscapes while maintaining focus on sustainable growth and customer value creation.</p>
+                <p>My approach combines analytical rigor with creative problem-solving, ensuring that every digital initiative delivers measurable results and long-term competitive advantage.</p>
             </div>
-            <div class="education">
-                <h3>Education & Certifications</h3>
-                <p><strong>Master of Business Administration</strong></p>
-                <p>University of Technology, Yangon</p>
-                <p>Specialization: Digital Strategy & Innovation</p>
-                <br>
-                <p><strong>Bachelor of Computer Science</strong></p>
-                <p>University of Computer Studies, Yangon</p>
-                <br>
-                <p><strong>Certifications:</strong></p>
-                <p>• Digital Marketing Professional (Google)</p>
-                <p>• Product Management Certificate</p>
-                <p>• Agile & Scrum Master Certified</p>
+            <div class="stats-grid slide-right">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Enterprise Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Efficiency Improvement</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25%</span>
+                    <span class="stat-label">Revenue Growth</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills">
-        <h2 class="section-title">Skills & Expertise</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Digital Transformation</h3>
-                <div class="skill-items">
-                    <span class="skill-tag">Strategy Development</span>
-                    <span class="skill-tag">Process Optimization</span>
-                    <span class="skill-tag">Change Management</span>
-                    <span class="skill-tag">Digital Innovation</span>
-                </div>
+        <h2 class="section-title fade-up">Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category fade-up">
+                <h3>Digital Strategy</h3>
+                <ul class="skill-list">
+                    <li>Digital Transformation Planning</li>
+                    <li>Business Process Optimization</li>
+                    <li>Change Management</li>
+                    <li>Innovation Framework Design</li>
+                    <li>Technology Integration</li>
+                </ul>
             </div>
-            <div class="skill-category">
+            <div class="skill-category fade-up">
                 <h3>Product Marketing</h3>
-                <div class="skill-items">
-                    <span class="skill-tag">Market Research</span>
-                    <span class="skill-tag">Pricing Strategy</span>
-                    <span class="skill-tag">Campaign Management</span>
-                    <span class="skill-tag">Customer Analytics</span>
+                <ul class="skill-list">
+                    <li>Market Research & Analysis</li>
+                    <li>Pricing Strategy Development</li>
+                    <li>Campaign Management</li>
+                    <li>Customer Journey Mapping</li>
+                    <li>Brand Positioning</li>
+                </ul>
+            </div>
+            <div class="skill-category fade-up">
+                <h3>Analytics & Tools</h3>
+                <ul class="skill-list">
+                    <li>Data Analysis & Visualization</li>
+                    <li>CRM Systems Management</li>
+                    <li>Marketing Automation</li>
+                    <li>Project Management</li>
+                    <li>Performance Metrics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title fade-up">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022 - Present</div>
+                    <h3 class="timeline-title">Senior Digital Transformation Specialist</h3>
+                    <div class="timeline-company">Digital Solutions Myanmar | Yangon</div>
+                    <p class="timeline-description">Leading comprehensive digital transformation initiatives for enterprise clients, resulting in significant operational efficiency improvements and cost reductions. Developed strategic frameworks for digital adoption and change management.</p>
                 </div>
             </div>
-            <div class="skill-category">
-                <h3>Technical Skills</h3>
-                <div class="skill-items">
-                    <span class="skill-tag">Data Analysis</span>
-                    <span class="skill-tag">CRM Systems</span>
-                    <span class="skill-tag">Marketing Automation</span>
-                    <span class="skill-tag">Project Management</span>
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-date">2020 - 2022</div>
+                    <h3 class="timeline-title">Product Marketing Manager</h3>
+                    <div class="timeline-company">Myanmar Tech Hub | Yangon</div>
+                    <p class="timeline-description">Executed successful product launch campaigns and go-to-market strategies. Conducted extensive market research and competitive analysis to inform strategic positioning and pricing decisions.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-up">
+                <div class="timeline-content">
+                    <div class="timeline-date">2018 - 2020</div>
+                    <h3 class="timeline-title">Business Development Associate</h3>
+                    <div class="timeline-company">Innovation Center Myanmar | Yangon</div>
+                    <p class="timeline-description">Identified and developed new business opportunities in emerging markets. Created strategic partnerships and supported digital transformation projects for portfolio companies.</p>
                 </div>
             </div>
         </div>
@@ -926,81 +935,36 @@
 
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2 class="section-title fade-up">Featured Work</h2>
         <div class="projects-grid">
-            <div class="project-card">
-                <h3>Enterprise Digital Transformation</h3>
-                <p>Led comprehensive digital transformation for a Fortune 500 company, resulting in 40% operational efficiency improvement and $2M cost savings.</p>
-                <div class="project-tags">
-                    <span class="tag">Strategy</span>
-                    <span class="tag">Process Optimization</span>
-                    <span class="tag">Change Management</span>
+            <div class="project-card fade-up">
+                <h3 class="project-title">Enterprise Digital Transformation</h3>
+                <p class="project-description">Comprehensive digital transformation strategy for Fortune 500 company, implementing process automation and data analytics solutions that delivered measurable business impact.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Strategy</span>
+                    <span class="tech-tag">Process Design</span>
+                    <span class="tech-tag">Analytics</span>
+                    <span class="tech-tag">Change Management</span>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>Product Launch Campaign</h3>
-                <p>Developed and executed go-to-market strategy for new SaaS product, achieving 150% of target adoption rate within first quarter.</p>
-                <div class="project-tags">
-                    <span class="tag">Marketing</span>
-                    <span class="tag">Analytics</span>
-                    <span class="tag">Campaign Management</span>
+            <div class="project-card fade-up">
+                <h3 class="project-title">SaaS Product Launch</h3>
+                <p class="project-description">End-to-end product marketing strategy for B2B SaaS platform, including market positioning, pricing optimization, and multi-channel campaign execution.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Market Research</span>
+                    <span class="tech-tag">Pricing Strategy</span>
+                    <span class="tech-tag">Campaign Management</span>
+                    <span class="tech-tag">Analytics</span>
                 </div>
             </div>
-            <div class="project-card">
-                <h3>Pricing Strategy Optimization</h3>
-                <p>Redesigned pricing model for B2B software company, increasing revenue by 25% while improving customer satisfaction scores.</p>
-                <div class="project-tags">
-                    <span class="tag">Pricing</span>
-                    <span class="tag">Market Research</span>
-                    <span class="tag">Revenue Growth</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2022 - Present</div>
-                    <h3 class="timeline-title">Senior Digital Transformation Specialist</h3>
-                    <p class="timeline-desc">Digital Solutions Myanmar | Yangon, Myanmar</p>
-                    <ul class="timeline-achievements">
-                        <li>Led digital transformation initiatives for 15+ enterprise clients, resulting in 40% operational efficiency improvement</li>
-                        <li>Developed and implemented comprehensive pricing strategies that increased revenue by 25%</li>
-                        <li>Managed key accounts worth $10M+ in annual revenue</li>
-                        <li>Collaborated with cross-functional teams to deliver innovative digital solutions</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2020 - 2022</div>
-                    <h3 class="timeline-title">Product Marketing Manager</h3>
-                    <p class="timeline-desc">Myanmar Tech Hub | Yangon, Myanmar</p>
-                    <ul class="timeline-achievements">
-                        <li>Launched 5 successful product campaigns with 95% customer satisfaction rate</li>
-                        <li>Conducted market research and competitive analysis for strategic positioning</li>
-                        <li>Increased product adoption by 60% through targeted marketing initiatives</li>
-                        <li>Built and maintained relationships with key stakeholders and partners</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="timeline-item">
-                <div class="timeline-content">
-                    <div class="timeline-date">2018 - 2020</div>
-                    <h3 class="timeline-title">Business Development Associate</h3>
-                    <p class="timeline-desc">Innovation Center Myanmar | Yangon, Myanmar</p>
-                    <ul class="timeline-achievements">
-                        <li>Identified and pursued new business opportunities in emerging markets</li>
-                        <li>Developed strategic partnerships that generated $2M+ in new revenue</li>
-                        <li>Created comprehensive market analysis reports for executive leadership</li>
-                        <li>Supported digital transformation projects for portfolio companies</li>
-                    </ul>
+            <div class="project-card fade-up">
+                <h3 class="project-title">Revenue Optimization Framework</h3>
+                <p class="project-description">Data-driven pricing model redesign for B2B software company, resulting in significant revenue growth while improving customer satisfaction metrics.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Pricing Models</span>
+                    <span class="tech-tag">Data Analysis</span>
+                    <span class="tech-tag">Customer Research</span>
+                    <span class="tech-tag">Revenue Growth</span>
                 </div>
             </div>
         </div>
@@ -1008,88 +972,217 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <h2 class="section-title">Let's Connect</h2>
-        <div class="contact-container">
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-            <div class="contact-info-section">
-                <h3 style="color: var(--cyan); margin-bottom: 2rem; font-family: 'Plus Jakarta Sans', sans-serif;">Get In Touch</h3>
-                <p style="color: var(--light-secondary); margin-bottom: 2rem; line-height: 1.8;">I'm always interested in discussing new opportunities, innovative projects, and potential collaborations. Whether you're looking for digital transformation expertise or product marketing insights, I'd love to hear from you.</p>
-                
-                <div class="contact-item" style="margin-bottom: 1.5rem;">
+        <h2 class="section-title fade-up">Connect</h2>
+        <div class="contact-grid">
+            <div class="contact-info slide-left">
+                <h3>Let's Discuss Your Project</h3>
+                <p>Ready to transform your business through strategic digital innovation? I'm here to help you navigate the complexities of digital transformation and achieve sustainable growth.</p>
+                <div class="contact-item">
                     <i class="fas fa-envelope"></i>
                     <span>kaunghtetpaing.dev@gmail.com</span>
                 </div>
-                <div class="contact-item" style="margin-bottom: 1.5rem;">
+                <div class="contact-item">
                     <i class="fas fa-phone"></i>
                     <span>+95 9 123 456 789</span>
                 </div>
-                <div class="contact-item" style="margin-bottom: 1.5rem;">
+                <div class="contact-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Yangon, Myanmar</span>
                 </div>
-                
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/kaunghtetpai" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://twitter.com/kaunghtetpai" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://github.com/kaunghtetpai" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:kaunghtetpaing.dev@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/kaunghtetpai" style="color: var(--pearl); text-decoration: none;">LinkedIn Profile</a>
                 </div>
             </div>
+            <form class="contact-form slide-right" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <label for="name">Full Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="subject" name="subject" placeholder=" " required>
+                    <label for="subject">Project Subject</label>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" rows="6" placeholder=" " required></textarea>
+                    <label for="message">Project Details</label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Kaung Htet Paing. All rights reserved. | Designed with passion for digital excellence.</p>
+        <p>&copy; 2024 Kaung Htet Paing. Digital Transformation Specialist. All rights reserved.</p>
     </footer>
 
     <script>
-        // GSAP ScrollTrigger registration
-        gsap.registerPlugin(ScrollTrigger);
+        // GSAP Plugins Registration
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-        // Loading animation
+        // Loading Animation
         window.addEventListener('load', () => {
-            const loading = document.getElementById('loading');
-            setTimeout(() => {
-                loading.style.opacity = '0';
-                setTimeout(() => {
-                    loading.style.display = 'none';
-                }, 500);
-            }, 1000);
+            gsap.to('#loading', {
+                opacity: 0,
+                duration: 0.8,
+                delay: 1,
+                onComplete: () => {
+                    document.getElementById('loading').style.display = 'none';
+                    initAnimations();
+                }
+            });
         });
 
-        // Mobile menu toggle
+        // Initialize Animations
+        function initAnimations() {
+            // Hero animations
+            gsap.timeline()
+                .from('.hero-subtitle', { opacity: 0, y: 30, duration: 1, delay: 0.2 })
+                .from('.hero-title', { opacity: 0, y: 50, duration: 1.2 }, '-=0.8')
+                .from('.hero-description', { opacity: 0, y: 30, duration: 1 }, '-=0.6')
+                .from('.cta-button', { opacity: 0, y: 30, duration: 1 }, '-=0.4');
+
+            // Scroll-triggered animations
+            gsap.utils.toArray('.fade-up').forEach(element => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray('.slide-left').forEach(element => {
+                gsap.fromTo(element,
+                    { opacity: 0, x: -50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+
+            gsap.utils.toArray('.slide-right').forEach(element => {
+                gsap.fromTo(element,
+                    { opacity: 0, x: 50 },
+                    {
+                        opacity: 1,
+                        x: 0,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: element,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
+                    }
+                );
+            });
+        }
+
+        // 3D Background
+        function init3DBackground() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.getElementById('bg3d').appendChild(renderer.domElement);
+
+            // Create geometric particles
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const colors = [];
+
+            for (let i = 0; i < 2000; i++) {
+                vertices.push(
+                    (Math.random() - 0.5) * 2000,
+                    (Math.random() - 0.5) * 2000,
+                    (Math.random() - 0.5) * 2000
+                );
+                
+                const intensity = Math.random() * 0.5 + 0.5;
+                colors.push(intensity, intensity, intensity);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 2,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6
+            });
+
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            camera.position.z = 1000;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                particles.rotation.x += 0.0003;
+                particles.rotation.y += 0.0005;
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        // Animated Flowers
+        function createFlowers() {
+            const container = document.getElementById('flowers');
+            const flowerCount = 50;
+
+            for (let i = 0; i < flowerCount; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.style.left = Math.random() * 100 + '%';
+                flower.style.top = Math.random() * 100 + '%';
+                flower.style.animationDelay = Math.random() * 8 + 's';
+                flower.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                container.appendChild(flower);
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-        
+
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const icon = menuToggle.querySelector('i');
@@ -1097,8 +1190,8 @@
             icon.classList.toggle('fa-times');
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1107,7 +1200,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     navMenu.classList.remove('active');
                     const icon = menuToggle.querySelector('i');
                     icon.classList.add('fa-bars');
@@ -1116,155 +1208,29 @@
             });
         });
 
-        // GSAP Animations
-        gsap.from('.hero-title', { duration: 1, y: 50, opacity: 0, delay: 1.2 });
-        gsap.from('.hero-subtitle', { duration: 1, y: 30, opacity: 0, delay: 1.4 });
-        gsap.from('.cta-button', { duration: 1, y: 30, opacity: 0, delay: 1.6 });
-        gsap.from('.hero-image', { duration: 1, scale: 0.8, opacity: 0, delay: 1.8 });
-        gsap.from('.contact-info', { duration: 1, y: 30, opacity: 0, delay: 2 });
-
-        // Timeline animations
-        gsap.utils.toArray('.timeline-item').forEach((item, index) => {
-            gsap.fromTo(item, 
-                { opacity: 0, x: index % 2 === 0 ? -100 : 100 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: item,
-                        start: 'top 80%',
-                        end: 'bottom 20%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        });
-
-        // Section fade-in animations
-        gsap.utils.toArray('section').forEach(section => {
-            gsap.fromTo(section.querySelector('.section-title'),
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        });
-
-        // 3D Background with Three.js
-        function init3DBackground() {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true });
-            
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById('bg3d').appendChild(renderer.domElement);
-
-            // Create particles
-            const geometry = new THREE.BufferGeometry();
-            const vertices = [];
-            const colors = [];
-
-            for (let i = 0; i < 1000; i++) {
-                vertices.push(
-                    (Math.random() - 0.5) * 2000,
-                    (Math.random() - 0.5) * 2000,
-                    (Math.random() - 0.5) * 2000
-                );
-                
-                colors.push(
-                    0.4 + Math.random() * 0.6,
-                    1,
-                    0.85 + Math.random() * 0.15
-                );
-            }
-
-            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({ 
-                size: 3, 
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.6
-            });
-            
-            const particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-
-            camera.position.z = 1000;
-
-            function animate() {
-                requestAnimationFrame(animate);
-                
-                particles.rotation.x += 0.0005;
-                particles.rotation.y += 0.001;
-                
-                renderer.render(scene, camera);
-            }
-
-            animate();
-
-            // Handle window resize
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-
-        // Initialize 3D background after page load
-        window.addEventListener('load', () => {
-            setTimeout(init3DBackground, 1500);
-        });
-
-        // Contact form handling
+        // Contact form
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Simple form validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields.');
-                return;
-            }
-            
-            // Simulate form submission
             const submitBtn = this.querySelector('.submit-btn');
             const originalText = submitBtn.textContent;
+            
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
             setTimeout(() => {
-                alert('Thank you for your message! I\'ll get back to you soon.');
+                alert('Message sent successfully! I will get back to you soon.');
                 this.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
             }, 2000);
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(10, 25, 47, 0.95)';
-            } else {
-                header.style.background = 'rgba(10, 25, 47, 0.9)';
-            }
-        });
+        // Initialize everything
+        setTimeout(() => {
+            init3DBackground();
+            createFlowers();
+        }, 1500);
     </script>
 </body>
 </html>

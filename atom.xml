@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Kaung Htet Paing - Portfolio Updates</title>
+    <link href="https://kaunghtetpai.github.io/atom.xml" rel="self"/>
+    <link href="https://kaunghtetpai.github.io/"/>
+    <updated>2024-01-01T00:00:00Z</updated>
+    <id>https://kaunghtetpai.github.io/</id>
+    <author>
+        <name>Kaung Htet Paing</name>
+        <email>kaunghtetpaing.dev@gmail.com</email>
+    </author>
+    <subtitle>Digital Transformation Specialist and Product Marketing Expert</subtitle>
+    
+    <entry>
+        <title>Portfolio Website Launch</title>
+        <link href="https://kaunghtetpai.github.io/"/>
+        <updated>2024-01-01T00:00:00Z</updated>
+        <id>https://kaunghtetpai.github.io/portfolio-launch</id>
+        <content type="html">
+            <![CDATA[
+            <p>Welcome to my professional portfolio showcasing expertise in digital transformation, product marketing, and strategic business development.</p>
+            <p>Explore my experience in driving digital innovation, developing pricing strategies, and managing key enterprise accounts.</p>
+            ]]>
+        </content>
+    </entry>
+</feed>
