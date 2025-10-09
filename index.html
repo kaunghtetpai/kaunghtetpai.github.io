@@ -1083,7 +1083,7 @@
         
         .timeline-achievements li {
             margin-bottom: 0.8rem;
-            color: var(--light-secondary);
+            color: var(--pearl);
             position: relative;
             padding-left: 1.8rem;
             opacity: 0.8;
@@ -1393,6 +1393,14 @@
                 display: none;
             }
             
+            .nav-indicator {
+                display: none;
+            }
+            
+            .scroll-progress {
+                height: 2px;
+            }
+            
             nav ul {
                 position: fixed;
                 top: 100%;
@@ -1439,6 +1447,11 @@
             .skill-category,
             .project-card {
                 padding: 3rem 2rem;
+            }
+            
+            .live-indicator {
+                font-size: 0.7rem;
+                padding: 0.6rem 1rem;
             }
         }
         
@@ -2070,14 +2083,21 @@
         async function loadStats() {
             try {
                 const response = await fetch('/api/stats');
-                const stats = await response.json();
-                
-                document.getElementById('projects-count').textContent = stats.projects + '+';
-                document.getElementById('clients-count').textContent = stats.clients + '+';
-                document.getElementById('efficiency-rate').textContent = stats.efficiency + '%';
-                document.getElementById('revenue-growth').textContent = stats.revenue + '%';
+                if (response.ok) {
+                    const stats = await response.json();
+                    
+                    const projectsEl = document.getElementById('projects-count');
+                    const clientsEl = document.getElementById('clients-count');
+                    const efficiencyEl = document.getElementById('efficiency-rate');
+                    const revenueEl = document.getElementById('revenue-growth');
+                    
+                    if (projectsEl) projectsEl.textContent = stats.projects + '+';
+                    if (clientsEl) clientsEl.textContent = stats.clients + '+';
+                    if (efficiencyEl) efficiencyEl.textContent = stats.efficiency + '%';
+                    if (revenueEl) revenueEl.textContent = stats.revenue + '%';
+                }
             } catch (error) {
-                console.log('Using static stats');
+                console.log('Using static stats - API not available');
             }
         }
         
@@ -2135,9 +2155,11 @@
             const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
             const navDots = document.querySelectorAll('.nav-dot');
             
+            if (navDots.length === 0) return;
+            
             sections.forEach((sectionId, index) => {
                 const section = document.getElementById(sectionId);
-                if (section) {
+                if (section && navDots[index]) {
                     const rect = section.getBoundingClientRect();
                     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
                         navDots.forEach(dot => dot.classList.remove('active'));
