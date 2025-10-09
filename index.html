@@ -293,6 +293,7 @@
             justify-content: center;
             position: relative;
             padding: 0 3rem;
+            background: radial-gradient(ellipse at center, rgba(248, 248, 255, 0.03) 0%, transparent 70%);
         }
         
         .hero-content {
@@ -312,14 +313,15 @@
         }
         
         .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 100;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            background: linear-gradient(135deg, var(--pearl) 0%, rgba(248, 248, 255, 0.6) 100%);
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            font-weight: 200;
+            line-height: 1.05;
+            margin-bottom: 2.5rem;
+            background: linear-gradient(135deg, var(--pearl) 0%, rgba(248, 248, 255, 0.7) 50%, var(--pearl) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 40px rgba(248, 248, 255, 0.1);
         }
         
         .hero-description {
@@ -370,18 +372,23 @@
         
         /* Section Styles */
         section {
-            padding: 8rem 3rem;
+            padding: 10rem 3rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
         }
         
+        section:nth-child(even) {
+            background: linear-gradient(180deg, transparent 0%, rgba(248, 248, 255, 0.01) 50%, transparent 100%);
+        }
+        
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 100;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 200;
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             position: relative;
+            letter-spacing: -0.02em;
         }
         
         .section-title::after {
@@ -398,15 +405,17 @@
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 8rem;
+            align-items: start;
+            margin-top: 2rem;
         }
         
         .about-text {
-            font-size: 1.1rem;
-            line-height: 2;
-            opacity: 0.8;
+            font-size: 1.2rem;
+            line-height: 2.2;
+            opacity: 0.85;
+            font-weight: 300;
         }
         
         .about-text p {
@@ -415,17 +424,18 @@
         
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
         }
         
         .stat-item {
             text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem;
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--transparent-light);
             transition: var(--transition);
+            border-radius: 8px;
         }
         
         .stat-item:hover {
@@ -451,16 +461,35 @@
         /* Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
         }
         
         .skill-category {
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--transparent-light);
-            padding: 3rem;
+            padding: 4rem 3rem;
             transition: var(--transition);
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--pearl), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover::before {
+            opacity: 0.5;
         }
         
         .skill-category:hover {
@@ -591,18 +620,20 @@
         /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 4rem;
+            margin-top: 3rem;
         }
         
         .project-card {
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--transparent-light);
-            padding: 3rem;
+            padding: 4rem 3rem;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            border-radius: 12px;
         }
         
         .project-card::before {
@@ -657,9 +688,10 @@
         /* Contact Section */
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 8rem;
             align-items: start;
+            margin-top: 3rem;
         }
         
         .contact-info h3 {
@@ -829,20 +861,23 @@
             }
             
             section {
-                padding: 6rem 2rem;
+                padding: 8rem 2rem;
             }
             
-            .hero-title {
-                font-size: 3rem;
+            .about-grid,
+            .contact-grid {
+                gap: 4rem;
             }
             
             .skills-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .skill-category,
+            .project-card {
+                padding: 3rem 2rem;
             }
         }
         
