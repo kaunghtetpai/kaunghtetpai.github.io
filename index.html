@@ -239,17 +239,24 @@
         
 
         
-        .hero-image {
+        .hero-image-placeholder {
             width: 220px;
             height: 220px;
             border-radius: 50%;
-            object-fit: cover;
             margin: 3rem auto;
             border: 3px solid var(--cyan);
             box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
-            display: block;
-            background: var(--dark-secondary);
-            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, var(--dark-accent) 100%);
+        }
+        
+        .initials {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--cyan);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         .contact-info {
@@ -610,6 +617,21 @@
                 font-size: 2rem;
             }
             
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .skill-category,
+            .project-card {
+                padding: 2rem;
+            }
+            
             nav ul {
                 position: fixed;
                 top: 70px;
@@ -670,6 +692,109 @@
             }
         }
         
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-category {
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(35, 53, 84, 0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+        
+        .skill-category h3 {
+            color: var(--cyan);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-tag {
+            background: rgba(100, 255, 218, 0.1);
+            color: var(--light);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: var(--transition);
+        }
+        
+        .skill-tag:hover {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: var(--cyan);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, var(--dark-secondary) 0%, rgba(35, 53, 84, 0.8) 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-card h3 {
+            color: var(--light);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        
+        .project-card p {
+            color: var(--light-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        
+        .tag {
+            background: var(--cyan);
+            color: var(--dark-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
         /* Animation classes */
         .fade-in {
             opacity: 0;
@@ -702,9 +827,11 @@
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
-            <ul id="navMenu">
+            <ul id="navMenu" role="navigation" aria-label="Main navigation">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -717,7 +844,9 @@
             <h1 class="hero-title">Hi, I'm <span class="cyan-accent">Kaung Htet Paing</span></h1>
             <p class="hero-subtitle">Digital Transformation Specialist & Product Marketing Expert</p>
             <a href="#contact" class="cta-button">Get In Touch</a>
-            <img src="https://via.placeholder.com/220x220/233554/64ffda?text=KHP" alt="Kaung Htet Paing" class="hero-image">
+            <div class="hero-image-placeholder">
+                <span class="initials">KHP</span>
+            </div>
             <div class="contact-info">
                 <div class="contact-item">
                     <i class="fas fa-envelope"></i>
@@ -757,6 +886,74 @@
                 <p>• Digital Marketing Professional (Google)</p>
                 <p>• Product Management Certificate</p>
                 <p>• Agile & Scrum Master Certified</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Digital Transformation</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Strategy Development</span>
+                    <span class="skill-tag">Process Optimization</span>
+                    <span class="skill-tag">Change Management</span>
+                    <span class="skill-tag">Digital Innovation</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Product Marketing</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Market Research</span>
+                    <span class="skill-tag">Pricing Strategy</span>
+                    <span class="skill-tag">Campaign Management</span>
+                    <span class="skill-tag">Customer Analytics</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <div class="skill-items">
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">CRM Systems</span>
+                    <span class="skill-tag">Marketing Automation</span>
+                    <span class="skill-tag">Project Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Enterprise Digital Transformation</h3>
+                <p>Led comprehensive digital transformation for a Fortune 500 company, resulting in 40% operational efficiency improvement and $2M cost savings.</p>
+                <div class="project-tags">
+                    <span class="tag">Strategy</span>
+                    <span class="tag">Process Optimization</span>
+                    <span class="tag">Change Management</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Product Launch Campaign</h3>
+                <p>Developed and executed go-to-market strategy for new SaaS product, achieving 150% of target adoption rate within first quarter.</p>
+                <div class="project-tags">
+                    <span class="tag">Marketing</span>
+                    <span class="tag">Analytics</span>
+                    <span class="tag">Campaign Management</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <h3>Pricing Strategy Optimization</h3>
+                <p>Redesigned pricing model for B2B software company, increasing revenue by 25% while improving customer satisfaction scores.</p>
+                <div class="project-tags">
+                    <span class="tag">Pricing</span>
+                    <span class="tag">Market Research</span>
+                    <span class="tag">Revenue Growth</span>
+                </div>
             </div>
         </div>
     </section>
