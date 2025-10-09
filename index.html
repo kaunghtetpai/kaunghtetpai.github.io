@@ -199,6 +199,50 @@
             font-weight: 500;
         }
         
+        /* Scroll Progress Indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pearl), rgba(248, 248, 255, 0.6));
+            z-index: 1002;
+            transition: width 0.1s ease;
+        }
+        
+        /* Enhanced Navigation */
+        .nav-indicator {
+            position: fixed;
+            right: 3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--transparent-medium);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-dot.active {
+            background: var(--pearl);
+            transform: scale(1.5);
+        }
+        
+        .nav-dot:hover {
+            background: var(--pearl);
+            transform: scale(1.2);
+        }
+        
         .live-dot {
             width: 8px;
             height: 8px;
@@ -1165,6 +1209,49 @@
         
         .contact-item:hover {
             opacity: 1;
+            transform: translateX(5px);
+        }
+        
+        /* Enhanced Stats Animation */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 100;
+            color: var(--pearl);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-number.counting {
+            animation: count-up 2s ease-out;
+        }
+        
+        @keyframes count-up {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Improved Button Interactions */
+        .interactive-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interactive-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(248, 248, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+        }
+        
+        .interactive-btn:active::after {
+            width: 300px;
+            height: 300px;
         }
         
         .contact-form {
@@ -1390,10 +1477,23 @@
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
     
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
     <!-- Live Status Indicator -->
     <div class="live-indicator">
         <div class="live-dot"></div>
         <span>LIVE</span>
+    </div>
+    
+    <!-- Navigation Indicator -->
+    <div class="nav-indicator" id="navIndicator">
+        <div class="nav-dot" data-section="hero"></div>
+        <div class="nav-dot" data-section="about"></div>
+        <div class="nav-dot" data-section="skills"></div>
+        <div class="nav-dot" data-section="experience"></div>
+        <div class="nav-dot" data-section="projects"></div>
+        <div class="nav-dot" data-section="contact"></div>
     </div>
 
     <!-- Dynamic Background Layers -->
@@ -1448,8 +1548,8 @@
                 <div class="floating-element" style="top: 80%; left: 20%; animation-delay: 6s;"></div>
                 <div class="floating-element" style="top: 10%; left: 90%; animation-delay: 8s;"></div>
             </div>
-            <p class="hero-description fade-up">Transforming businesses through strategic digital innovation, product marketing excellence, and data-driven solutions that drive sustainable growth in Myanmar's evolving digital economy.</p>
-            <a href="#contact" class="cta-button fade-up">Start Conversation</a>
+            <p class="hero-description fade-up">Leading digital transformation initiatives at Fortune 500 companies with proven expertise in product marketing, pricing strategy, and enterprise solutions. Delivering measurable results across Silicon Valley's most innovative organizations.</p>
+            <a href="#contact" class="cta-button interactive-btn fade-up">Start Conversation</a>
         </div>
     </section>
 
@@ -1458,9 +1558,9 @@
         <h2 class="section-title fade-up">About</h2>
         <div class="about-grid">
             <div class="about-text slide-left">
-                <p>As a Digital Transformation Specialist based in Yangon, I bridge the gap between traditional Myanmar business practices and cutting-edge digital solutions. My expertise spans strategic planning, product marketing, and enterprise account management across Southeast Asian markets.</p>
-                <p>With deep understanding of Myanmar's unique market dynamics and consumer behavior, I help local and international organizations navigate complex digital landscapes while maintaining focus on sustainable growth and customer value creation.</p>
-                <p>My approach combines analytical rigor with culturally-aware problem-solving, ensuring that every digital initiative delivers measurable results and long-term competitive advantage in Myanmar's rapidly evolving business environment.</p>
+                <p>As a Senior Digital Transformation Specialist with 6+ years of Silicon Valley experience, I specialize in driving enterprise-level digital initiatives that deliver quantifiable business outcomes. My expertise spans strategic planning, product marketing, and large-scale technology implementations.</p>
+                <p>Having worked with Fortune 500 companies and high-growth startups, I bring a unique perspective on scaling digital solutions while maintaining operational excellence. My track record includes managing $10M+ accounts and delivering 40% efficiency improvements.</p>
+                <p>I combine data-driven decision making with strategic vision to ensure every digital transformation initiative creates sustainable competitive advantages and measurable ROI for stakeholders.</p>
             </div>
             <div class="stats-grid slide-right">
                 <div class="stat-item">
@@ -1644,7 +1744,7 @@
                     <textarea id="message" name="message" rows="6" placeholder=" " required></textarea>
                     <label for="message">Project Details</label>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn interactive-btn">Send Message</button>
             </form>
         </div>
     </section>
@@ -2020,6 +2120,83 @@
             }
         }
         
+        // Scroll Progress Indicator
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        }
+        
+        window.addEventListener('scroll', updateScrollProgress);
+        
+        // Navigation Indicator
+        function updateNavIndicator() {
+            const sections = ['hero', 'about', 'skills', 'experience', 'projects', 'contact'];
+            const navDots = document.querySelectorAll('.nav-dot');
+            
+            sections.forEach((sectionId, index) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        navDots.forEach(dot => dot.classList.remove('active'));
+                        navDots[index].classList.add('active');
+                    }
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateNavIndicator);
+        
+        // Navigation dot clicks
+        document.querySelectorAll('.nav-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionId = dot.getAttribute('data-section');
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        
+        // Enhanced stats counter animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalValue = parseInt(stat.textContent);
+                let currentValue = 0;
+                const increment = finalValue / 50;
+                
+                const counter = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        stat.textContent = stat.textContent;
+                        clearInterval(counter);
+                    } else {
+                        const suffix = stat.textContent.includes('%') ? '%' : '+';
+                        stat.textContent = Math.floor(currentValue) + suffix;
+                    }
+                }, 40);
+                
+                stat.classList.add('counting');
+            });
+        }
+        
+        // Trigger stats animation when in view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+        
+        document.querySelectorAll('.stat-item').forEach(item => {
+            statsObserver.observe(item);
+        });
+        
         // Initialize everything
         setTimeout(() => {
             init3DBackground();
@@ -2027,6 +2204,8 @@
             loadStats();
             typeWriter();
             updateLiveStatus();
+            updateScrollProgress();
+            updateNavIndicator();
         }, 1500);
     </script>
 </body>
