@@ -1126,19 +1126,19 @@
             </div>
             <div class="stats-grid slide-right">
                 <div class="stat-item">
-                    <span class="stat-number">35+</span>
+                    <span class="stat-number" id="projects-count">35+</span>
                     <span class="stat-label">Projects Completed</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">12+</span>
+                    <span class="stat-number" id="clients-count">12+</span>
                     <span class="stat-label">Enterprise Clients</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">40%</span>
+                    <span class="stat-number" id="efficiency-rate">40%</span>
                     <span class="stat-label">Efficiency Improvement</span>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">25%</span>
+                    <span class="stat-number" id="revenue-growth">25%</span>
                     <span class="stat-label">Revenue Growth</span>
                 </div>
             </div>
@@ -1578,10 +1578,26 @@
             });
         });
         
+        // Load dynamic stats
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/stats');
+                const stats = await response.json();
+                
+                document.getElementById('projects-count').textContent = stats.projects + '+';
+                document.getElementById('clients-count').textContent = stats.clients + '+';
+                document.getElementById('efficiency-rate').textContent = stats.efficiency + '%';
+                document.getElementById('revenue-growth').textContent = stats.revenue + '%';
+            } catch (error) {
+                console.log('Using static stats');
+            }
+        }
+        
         // Initialize everything
         setTimeout(() => {
             init3DBackground();
             createFlowers();
+            loadStats();
         }, 1500);
     </script>
 </body>

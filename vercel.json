@@ -5,6 +5,9 @@
     },
     "api/stats.js": {
       "runtime": "nodejs18.x"
+    },
+    "api/portfolio.js": {
+      "runtime": "nodejs18.x"
     }
   },
   "rewrites": [
