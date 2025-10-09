@@ -3,7 +3,7 @@ export default function handler(req, res) {
         profile: {
             name: "Kaung Htet Paing",
             title: "Digital Transformation Specialist",
-            location: "Silicon Valley, CA",
+            location: "Singapore",
             experience: "7+ years",
             education: ["UC Berkeley MBA", "Stanford CS"],
             company: "TechCorp Solutions"
