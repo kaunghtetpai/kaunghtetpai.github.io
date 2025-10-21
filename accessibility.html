@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Statement | Kaung Htet Paing</title>
+    <meta name="description" content="Accessibility statement for Kaung Htet Paing's portfolio website. Learn about our commitment to web accessibility.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kaunghtetpai.github.io/accessibility.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap">
+    <style>
+        :root {
+            --black: #000000;
+            --pearl: #f8f8ff;
+            --graphite: #2f2f2f;
+            --transparent-light: rgba(248, 248, 255, 0.08);
+            --focus-color: #00ff88;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--black) 0%, rgba(15, 15, 15, 1) 100%);
+            color: var(--pearl);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--transparent-light);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin: 2rem 0 1rem 0;
+            color: var(--focus-color);
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        a {
+            color: var(--focus-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background: var(--transparent-light);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--focus-color);
+            color: var(--black);
+            text-decoration: none;
+        }
+
+        .last-updated {
+            font-style: italic;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: var(--transparent-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--focus-color);
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Portfolio</a>
+        
+        <header>
+            <h1>Accessibility Statement</h1>
+            <p class="last-updated">Last updated: January 9, 2025</p>
+        </header>
+
+        <main>
+            <div class="highlight-box">
+                <p><strong>Our Commitment:</strong> We are committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
+            </div>
+
+            <h2>Conformance Status</h2>
+            <p>The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA.</p>
+            <p>This website is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard.</p>
+
+            <h2>Accessibility Features</h2>
+            <p>We have implemented the following accessibility features:</p>
+
+            <h3>Keyboard Navigation</h3>
+            <ul>
+                <li>All interactive elements are keyboard accessible</li>
+                <li>Skip-to-content link for screen reader users</li>
+                <li>Logical tab order throughout the website</li>
+                <li>Visible focus indicators on all interactive elements</li>
+            </ul>
+
+            <h3>Visual Design</h3>
+            <ul>
+                <li>High contrast color scheme meeting WCAG AA standards</li>
+                <li>Scalable text that can be enlarged up to 200% without loss of functionality</li>
+                <li>Consistent navigation and layout structure</li>
+                <li>Clear visual hierarchy with proper heading structure</li>
+            </ul>
+
+            <h3>Content Structure</h3>
+            <ul>
+                <li>Semantic HTML markup for screen readers</li>
+                <li>Proper heading hierarchy (H1, H2, H3, etc.)</li>
+                <li>Descriptive link text</li>
+                <li>Alternative text for images</li>
+                <li>Form labels and error messages</li>
+            </ul>
+
+            <h3>Interactive Elements</h3>
+            <ul>
+                <li>Minimum touch target size of 44x44 pixels</li>
+                <li>Clear focus states for all interactive elements</li>
+                <li>Descriptive button and link text</li>
+                <li>Form validation with clear error messages</li>
+            </ul>
+
+            <h2>Known Issues</h2>
+            <p>We are aware of the following accessibility issues and are working to address them:</p>
+            <ul>
+                <li>Some decorative animations may not respect reduced motion preferences</li>
+                <li>Custom cursor effects are not accessible to screen reader users</li>
+                <li>Some third-party embedded content may not be fully accessible</li>
+            </ul>
+
+            <h2>Assistive Technologies</h2>
+            <p>This website has been tested with the following assistive technologies:</p>
+            <ul>
+                <li>Screen readers (NVDA, JAWS, VoiceOver)</li>
+                <li>Keyboard-only navigation</li>
+                <li>Voice recognition software</li>
+                <li>Screen magnification software</li>
+            </ul>
+
+            <h2>Browser Compatibility</h2>
+            <p>This website is designed to be accessible across modern browsers including:</p>
+            <ul>
+                <li>Chrome (latest version)</li>
+                <li>Firefox (latest version)</li>
+                <li>Safari (latest version)</li>
+                <li>Edge (latest version)</li>
+            </ul>
+
+            <h2>Mobile Accessibility</h2>
+            <p>Our website is designed to be accessible on mobile devices with:</p>
+            <ul>
+                <li>Responsive design that works on all screen sizes</li>
+                <li>Touch-friendly interface with appropriate target sizes</li>
+                <li>Support for mobile screen readers</li>
+                <li>Optimized performance for slower connections</li>
+            </ul>
+
+            <h2>Third-Party Content</h2>
+            <p>We use some third-party services that may not be fully accessible:</p>
+            <ul>
+                <li>Google Fonts for typography</li>
+                <li>Font Awesome for icons</li>
+                <li>GSAP for animations</li>
+                <li>Three.js for 3D graphics</li>
+            </ul>
+            <p>We are working with these providers to ensure better accessibility support.</p>
+
+            <h2>Feedback and Contact</h2>
+            <p>We welcome your feedback on the accessibility of this website. Please let us know if you encounter accessibility barriers:</p>
+            <ul>
+                <li>Email: rita@oxp.mobi</li>
+                <li>Phone: +12342469978</li>
+                <li>Subject line: "Accessibility Feedback"</li>
+            </ul>
+
+            <h2>Response Time</h2>
+            <p>We aim to respond to accessibility feedback within 2 business days and to resolve issues within 10 business days when possible.</p>
+
+            <h2>Formal Complaints</h2>
+            <p>If you are not satisfied with our response to your accessibility concern, you may file a formal complaint. Please include:</p>
+            <ul>
+                <li>Your contact information</li>
+                <li>Description of the accessibility barrier</li>
+                <li>The web page or content where you encountered the issue</li>
+                <li>Your preferred method of contact for our response</li>
+            </ul>
+
+            <h2>Ongoing Efforts</h2>
+            <p>We are committed to ongoing accessibility improvements:</p>
+            <ul>
+                <li>Regular accessibility audits and testing</li>
+                <li>Staff training on accessibility best practices</li>
+                <li>User testing with people with disabilities</li>
+                <li>Staying current with accessibility standards and guidelines</li>
+            </ul>
+
+            <h2>Technical Specifications</h2>
+            <p>Accessibility of this website relies on the following technologies:</p>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript (ES6+)</li>
+                <li>ARIA (Accessible Rich Internet Applications)</li>
+            </ul>
+
+            <h2>Assessment Approach</h2>
+            <p>This website was assessed using:</p>
+            <ul>
+                <li>Automated accessibility testing tools</li>
+                <li>Manual testing with keyboard navigation</li>
+                <li>Screen reader testing</li>
+                <li>Color contrast analysis</li>
+                <li>Mobile accessibility testing</li>
+            </ul>
+
+            <p>This statement was prepared on January 9, 2025, and will be reviewed annually to ensure it remains current and accurate.</p>
+        </main>
+    </div>
+</body>
+</html>
